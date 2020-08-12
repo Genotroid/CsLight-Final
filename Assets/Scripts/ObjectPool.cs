@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -36,8 +35,14 @@ namespace genotroid
 
         protected bool TryGetObject(out GameObject result)
         {
-            result = _pool.First(p => p.activeSelf == false);
-            Debug.Log(result);
+            result = null;
+            foreach(GameObject poolObject in _pool)
+            {
+                if (!poolObject.activeSelf)
+                {
+                    result = poolObject;
+                }
+            }
             return result != null;
         }
     }

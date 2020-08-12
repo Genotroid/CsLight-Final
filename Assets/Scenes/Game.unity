@@ -2163,6 +2163,7 @@ MonoBehaviour:
   _player: {fileID: 323937885}
   _enemySpawner: {fileID: 1545455263}
   _playerControl: {fileID: 852071429}
+  _distanceScore: {fileID: 1243599965}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -5800,8 +5801,9 @@ GameObject:
   - component: {fileID: 1243599962}
   - component: {fileID: 1243599964}
   - component: {fileID: 1243599963}
+  - component: {fileID: 1243599965}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DistanceScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5864,6 +5866,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243599961}
   m_CullTransparentMesh: 0
+--- !u!114 &1243599965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243599961}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6ad9ca60f78ea4b83ec86f4e3bd4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distanceText: {fileID: 1984262091}
 --- !u!1 &1250453364
 GameObject:
   m_ObjectHideFlags: 0
@@ -7137,7 +7152,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1466573666}
-  - component: {fileID: 1466573667}
   m_Layer: 5
   m_Name: Distance
   m_TagString: Untagged
@@ -7162,19 +7176,6 @@ Transform:
   m_Father: {fileID: 1243599962}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
---- !u!114 &1466573667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466573665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d6ad9ca60f78ea4b83ec86f4e3bd4c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _distanceText: {fileID: 1984262091}
 --- !u!1 &1488106150
 GameObject:
   m_ObjectHideFlags: 0
@@ -7521,7 +7522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 1267868795}
-  _count: 8
+  _count: 1
   _prefab: {fileID: 2238736244560993999, guid: a46f7e650ce932c478512dcf8639e2e6, type: 3}
   _spawnPoint: {fileID: 1267868796}
   _target: {fileID: 323937885}

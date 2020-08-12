@@ -10,6 +10,7 @@ namespace genotroid {
         [SerializeField] private Player _player;
         [SerializeField] private GameObject _enemySpawner;
         [SerializeField] private GameObject _playerControl;
+        [SerializeField] private DistanceScore _distanceScore;
 
         private void OnEnable()
         {
@@ -25,11 +26,13 @@ namespace genotroid {
         {
             _enemySpawner.SetActive(false);
             _playerControl.SetActive(false);
+            _distanceScore.enabled = false;
             _gameMenu.SetActive(true); 
         }
 
         public void ResetGame()
         {
+            _distanceScore.enabled = true;
             _enemySpawner.SetActive(true);
             _playerControl.SetActive(true);
             _gameMenu.SetActive(false);
