@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace genotroid
 {
+    [RequireComponent(typeof(Rigidbody2D))]
+
     public class Bullet : MonoBehaviour
     {
         [SerializeField] protected int Damage;

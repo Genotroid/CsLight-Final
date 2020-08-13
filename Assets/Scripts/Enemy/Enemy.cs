@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 namespace genotroid
 {
+    [RequireComponent(typeof(CapsuleCollider2D))]
+    [RequireComponent(typeof(Animator))]
+
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private int _health;
@@ -15,11 +18,11 @@ namespace genotroid
 
         public Player Target => _target;
 
-        public event UnityAction<Enemy> Dying;
+        public event UnityAction<Enemy> Died;
 
         private void OnEnable()
         {
-            gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
+            GetComponent<CapsuleCollider2D>().enabled = true;
         }
 
         private void Start()
@@ -30,7 +33,7 @@ namespace genotroid
 
         public void Die()
         {
-            Dying?.Invoke(this);
+            Died?.Invoke(this);
             _currentHealth = _health;
             gameObject.SetActive(false);
         }
@@ -45,7 +48,7 @@ namespace genotroid
             _currentHealth -= damage;
             if (_currentHealth <= 0)
             {
-                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+                GetComponent<CapsuleCollider2D>().enabled = false;
                 _animator.Play("Dead");
             }   
         }

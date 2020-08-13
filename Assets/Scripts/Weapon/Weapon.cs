@@ -12,22 +12,22 @@ namespace genotroid
         [SerializeField] private float _rayRange = 20;
         [SerializeField] private float _reloadTime;
         [SerializeField] private int _clipSize;
-        [SerializeField] private float ShootDelay = 2f;
-        [SerializeField] private float BulletDelay = 0.1f;
-        [SerializeField] private Transform ShootPoint;
-        [SerializeField] private Bullet Bullet;
+        [SerializeField] private float _shootDelay = 2f;
+        [SerializeField] private float _bulletDelay = 0.1f;
+        [SerializeField] private Transform _shootPoint;
+        [SerializeField] private Bullet _bullet;
         [SerializeField] private int _bulletsInClip;
         [SerializeField] private int _bulletsCountInShot = 3;
         [SerializeField] private AudioSource _shootSound;
         [SerializeField] private AudioSource _reloadSound;
 
-        private float LastBulletTime = 0f;
-        private float LastShootTime = 0f;
-        private float CurrentReloadTime = float.MaxValue;
-        private bool IsShooting = false;
-        private bool IsReloading = false;
-        private int ShootedBulletCount = 0;
-        private float HalfShootAngle;
+        private float _lastBulletTime = 0f;
+        private float _lastShootTime = 0f;
+        private float _currentReloadTime = float.MaxValue;
+        private bool _isShooting = false;
+        private bool _isReloading = false;
+        private int _shootedBulletCount = 0;
+        private float _halfShootAngle;
 
         public float ShootAngle => _shootAngle;
         public float RayRange => _rayRange;
@@ -44,22 +44,22 @@ namespace genotroid
 
         private void Start()
         {
-            HalfShootAngle = _shootAngle / 2;
+            _halfShootAngle = _shootAngle / 2;
         }
 
         private void Update()
         {
-            if (IsReloading)
+            if (_isReloading)
             {
-                if (CurrentReloadTime < _reloadTime)
+                if (_currentReloadTime < _reloadTime)
                 {
-                    CurrentReloadTime += Time.deltaTime;
-                    IsShooting = false;
+                    _currentReloadTime += Time.deltaTime;
+                    _isShooting = false;
                 }
                 else
                 {
                     Reloaded?.Invoke();
-                    IsReloading = false;
+                    _isReloading = false;
                 }   
             }
 
@@ -68,44 +68,44 @@ namespace genotroid
                 Reload();
             }
 
-            LastShootTime += Time.deltaTime;
-            LastBulletTime += Time.deltaTime;
-            if (IsShooting && !IsReloading)
+            _lastShootTime += Time.deltaTime;
+            _lastBulletTime += Time.deltaTime;
+            if (_isShooting && !_isReloading)
             {
-                if (LastShootTime >= ShootDelay)
+                if (_lastShootTime >= _shootDelay)
                 {
-                    ShootedBulletCount = 0;
-                    LastShootTime = 0;
+                    _shootedBulletCount = 0;
+                    _lastShootTime = 0;
                 }
-                if (ShootedBulletCount < _bulletsCountInShot)
+                if (_shootedBulletCount < _bulletsCountInShot)
                 {
-                    if (LastBulletTime >= BulletDelay)
+                    if (_lastBulletTime >= _bulletDelay)
                     {
-                        LastBulletTime = 0;
+                        _lastBulletTime = 0;
                         _shootSound.Play();
-                        Instantiate(Bullet, ShootPoint.position, Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + Random.Range(-HalfShootAngle, HalfShootAngle)));
+                        Instantiate(_bullet, _shootPoint.position, Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + Random.Range(-_halfShootAngle, _halfShootAngle)));
                         _bulletsInClip--;
                         Shooted?.Invoke();
-                        ShootedBulletCount++;
+                        _shootedBulletCount++;
                         
                     }
                 }
                 else
-                    IsShooting = false;
+                    _isShooting = false;
             }
         }
 
         public void Shoot()
         {
-            IsShooting = true;
+            _isShooting = true;
         }
 
         public void Reload()
         {
             _reloadSound.Play();
-            CurrentReloadTime = 0f;
+            _currentReloadTime = 0f;
             _bulletsInClip = _clipSize;
-            IsReloading = true;
+            _isReloading = true;
         }
     }
 }

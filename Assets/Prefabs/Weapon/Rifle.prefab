@@ -466,10 +466,11 @@ MonoBehaviour:
   _rayRange: 10
   _reloadTime: 2
   _clipSize: 30
-  ShootDelay: 0.5
-  BulletDelay: 0.05
-  ShootPoint: {fileID: 7755130973497518829}
-  Bullet: {fileID: -8942040030294677129, guid: e48463746df33f74aa3f8e82946654fc, type: 3}
+  _shootDelay: 0.5
+  _bulletDelay: 0.1
+  _shootPoint: {fileID: 7755130973497518829}
+  _bullet: {fileID: -8942040030294677129, guid: e48463746df33f74aa3f8e82946654fc,
+    type: 3}
   _bulletsInClip: 0
   _bulletsCountInShot: 3
   _shootSound: {fileID: 394163935959850335}

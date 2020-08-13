@@ -5,6 +5,7 @@ using UnityEngine;
 namespace genotroid
 {
     [RequireComponent(typeof(Animator))]
+
     public class AttackState : State
     {
         [SerializeField] private int _damage;

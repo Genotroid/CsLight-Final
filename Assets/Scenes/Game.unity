@@ -7522,11 +7522,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 1267868795}
-  _count: 1
+  _count: 8
   _prefab: {fileID: 2238736244560993999, guid: a46f7e650ce932c478512dcf8639e2e6, type: 3}
   _spawnPoint: {fileID: 1267868796}
   _target: {fileID: 323937885}
-  _spawnDelayTime: 0.5
+  _spawnDelayTime: 0.75
 --- !u!4 &1545455265
 Transform:
   m_ObjectHideFlags: 0

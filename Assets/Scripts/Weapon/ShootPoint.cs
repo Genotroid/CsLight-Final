@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 namespace genotroid
 {
+    [RequireComponent(typeof(LineRenderer))]
+
     public class ShootPoint : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon;

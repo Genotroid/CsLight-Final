@@ -593,10 +593,11 @@ MonoBehaviour:
   _rayRange: 10
   _reloadTime: 1
   _clipSize: 8
-  ShootDelay: 0.05
-  BulletDelay: 0
-  ShootPoint: {fileID: 8343918644559553474}
-  Bullet: {fileID: -8942040030294677129, guid: e48463746df33f74aa3f8e82946654fc, type: 3}
+  _shootDelay: 0.1
+  _bulletDelay: 0.1
+  _shootPoint: {fileID: 8343918644559553474}
+  _bullet: {fileID: -8942040030294677129, guid: e48463746df33f74aa3f8e82946654fc,
+    type: 3}
   _bulletsInClip: 0
   _bulletsCountInShot: 1
   _shootSound: {fileID: 71755507}

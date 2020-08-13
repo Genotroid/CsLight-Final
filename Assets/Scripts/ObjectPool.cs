@@ -7,7 +7,7 @@ namespace genotroid
     public class ObjectPool : MonoBehaviour
     {
         [SerializeField] private GameObject _container;
-        [SerializeField] protected int _count;
+        [SerializeField] private int _count;
 
         private List<GameObject> _pool = new List<GameObject>();
 

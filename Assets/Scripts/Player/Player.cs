@@ -14,7 +14,6 @@ namespace genotroid
         private Weapon _currentWeapon;
         private int _currentWeaponNumber = 0;
         private int _currentHealth;
-        private Animator _animator;
 
         public event UnityAction<int, int> HealthChanged;
         public event UnityAction<int> MoneyChanged;
@@ -26,7 +25,6 @@ namespace genotroid
             _currentWeapon = _weapons[_currentWeaponNumber];
             ChangeWeapon(_weapons[_currentWeaponNumber]);
             _currentHealth = _health;
-            _animator = GetComponent<Animator>();
         }
 
         private void Die()
