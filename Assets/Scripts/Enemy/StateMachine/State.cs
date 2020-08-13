@@ -29,7 +29,9 @@ namespace genotroid
             foreach (Transition transition in _transitions)
             {
                 if (transition.NeedTransit)
+                {
                     return transition.TargetState;
+                }      
             }
 
             return null;
@@ -40,8 +42,10 @@ namespace genotroid
             if (enabled)
             {
                 foreach (Transition transition in _transitions)
+                {
                     transition.enabled = false;
-
+                }
+                    
                 enabled = false;
             }
         }

@@ -91,7 +91,9 @@ namespace genotroid
                     }
                 }
                 else
+                {
                     _isShooting = false;
+                }      
             }
         }
 
